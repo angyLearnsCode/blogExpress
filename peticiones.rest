@@ -1,1 +1,7 @@
-GET http://localhost:3200/api/authors
+GET http://localhost:3000/api/authors
+
+###
+POST http://localhost:3000/api/authors
+
+###
+GET http://localhost:3000/api/posts

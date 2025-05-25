@@ -1,28 +1,29 @@
 {
-  "name": "actividad-8",
-  "version": "1.0.0",
+  "name": "express-init-template",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "lint": "biome lint",
+    "format": "biome check --write"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/angyLearnsCode/blogExpress.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/angyLearnsCode/blogExpress/issues"
-  },
-  "homepage": "https://github.com/angyLearnsCode/blogExpress#readme",
+  "keywords": [
+    "express",
+    "init",
+    "template"
+  ],
+  "author": "Mario Girón Martín",
+  "license": "MIT",
   "dependencies": {
-    "dotenv": "^16.5.0",
-    "express": "^5.1.0"
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^5.0.0"
   },
   "devDependencies": {
-    "nodemon": "^3.1.10"
+    "@biomejs/biome": "1.9.4",
+    "@types/express": "^5.0.0",
+    "nodemon": "^3.0.1"
   }
 }
