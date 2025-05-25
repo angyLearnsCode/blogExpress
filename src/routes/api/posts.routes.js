@@ -1,4 +1,8 @@
-const { getAll } = require("../../controllers/posts.controller");
+const {
+  getAll,
+  getByAuthorId,
+  createPost,
+} = require("../../controllers/posts.controller");
 
 const router = require("express").Router();
 

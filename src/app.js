@@ -9,6 +9,12 @@ app.use(cors());
 // Route configuration
 app.use("/api", require("./routes/api.routes"));
 
+// Middleware
+app.use((req, res, next) => {
+  console.log(new Date());
+  next();
+});
+
 // 404 handler
 app.use((req, res, next) => {
   res.status(404).json({
