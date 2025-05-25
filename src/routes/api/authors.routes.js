@@ -1,16 +1,12 @@
 const {
   getAll,
-  create,
-  edit,
-  getById,
+  createAuthor,
 } = require("../../controllers/authors.controller");
 
 // peticiones de /api/authors
 const router = require("express").Router();
 
 router.get("/", getAll);
-router.get("/:authorId", getById);
-router.post("/", create);
-router.put("/", edit);
+router.post("/", createAuthor);
 
 module.exports = router;

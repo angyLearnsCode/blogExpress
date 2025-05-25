@@ -2,6 +2,13 @@ const getAll = (req, res) => {
   res.send("Recupera todos los autores");
 };
 
+const createAuthor = (req, res) => {
+  const { nombre, email, telefono } = req.body;
+  res.send("Se crea un nuevo autor");
+};
+
+// OPCIONALES
+
 const getById = (req, res) => {
   const { authorId } = req.params;
 
@@ -13,18 +20,15 @@ const getById = (req, res) => {
   res.send("Recupero contacto por ID");
 };
 
-const create = (req, res) => {
-  const { nombre, email, telefono } = req.body;
-  res.send("Se crea un nuevo autor");
-};
-
 const edit = (req, res) => {
   res.send("Se actualiza un autor");
 };
 
+// EXPORTADOS
+
 module.exports = {
   getAll,
   getById,
-  create,
+  createAuthor,
   edit,
 };
