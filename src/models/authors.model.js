@@ -15,7 +15,19 @@ const selectById = async (autorId) => {
   return result[0];
 };
 
+// INSERT INTO author
+const insert = async ({ name, email, image }) => {
+  const [result] = await db.query(
+    "INSERT INTO author (name, email, image) VALUES (?, ?, ?)",
+    [name, email, image]
+  );
+  return result;
+};
+
+// EXPORTADOS
+
 module.exports = {
   selectAll,
   selectById,
+  insert,
 };

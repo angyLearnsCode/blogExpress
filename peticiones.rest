@@ -4,3 +4,13 @@ GET {{host}}/api/authors
 
 ###
 GET {{host}}/api/authors/1
+
+###
+POST {{host}}/api/authors
+Content-Type: application/json
+
+{
+    "name": "Juanan",
+    "email": "juanan@mail.com",
+    "image": "http://images.com/juanan.jpg"
+}

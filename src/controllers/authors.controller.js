@@ -14,29 +14,31 @@ const getById = async (req, res) => {
   res.json(author);
 };
 
-const createAuthor = (req, res) => {
-  const { nombre, email, telefono } = req.body;
-  res.send("Se crea un nuevo autor");
+const create = async (req, res) => {
+  const { name, email, image } = req.body;
+  // Verificador campos
+  if (!name || !email) {
+    return res
+      .status(400)
+      .json({ message: "Los campos de nombre y email son obligatorios" });
+  }
+  // Verificador URL de imagen
+  if (image && !image.startsWith("http")) {
+    return res.status(400).json({ message: "Formato de URL no válido" });
+  }
+
+  // Resultado
+  const result = await Authors.insert(req.body);
+  const author = await Authors.selectById(result.insertId);
+  res.json(author);
 };
-
-// // OPCIONALES
-
-//   // Compruebo si authorId es un numero
-//   if (isNaN(authorId)) {
-//     res.status(400).send("El valor debe ser un número");
-//   }
-
-//   res.send("Recupero contacto por ID");
-// };
-
-// const edit = (req, res) => {
-//   res.send("Se actualiza un autor");
-// };
 
 // EXPORTADOS
 
 module.exports = {
   getAll,
   getById,
-  createAuthor,
+  create,
 };
+
+// 9 minutos 8 de mayo
