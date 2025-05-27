@@ -1,5 +1,8 @@
-const getAll = (req, res) => {
-  res.send("Recupera todos los autores");
+const Authors = require("../models/authors.model");
+
+const getAll = async (req, res) => {
+  const authors = await Authors.selectAll();
+  res.json(authors);
 };
 
 const createAuthor = (req, res) => {
@@ -7,28 +10,26 @@ const createAuthor = (req, res) => {
   res.send("Se crea un nuevo autor");
 };
 
-// OPCIONALES
+// // OPCIONALES
 
-const getById = (req, res) => {
-  const { authorId } = req.params;
+// const getById = (req, res) => {
+//   const { authorId } = req.params;
 
-  // Compruebo si authorId es un numero
-  if (isNaN(authorId)) {
-    res.status(400).send("El valor debe ser un número");
-  }
+//   // Compruebo si authorId es un numero
+//   if (isNaN(authorId)) {
+//     res.status(400).send("El valor debe ser un número");
+//   }
 
-  res.send("Recupero contacto por ID");
-};
+//   res.send("Recupero contacto por ID");
+// };
 
-const edit = (req, res) => {
-  res.send("Se actualiza un autor");
-};
+// const edit = (req, res) => {
+//   res.send("Se actualiza un autor");
+// };
 
 // EXPORTADOS
 
 module.exports = {
   getAll,
-  getById,
   createAuthor,
-  edit,
 };
