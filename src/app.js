@@ -1,6 +1,8 @@
 // Creation and configuration of the Express APP
 const express = require("express");
 const cors = require("cors");
+const fs = require("node:fs/promises");
+const dayjs = require("dayjs");
 
 const app = express();
 app.use(express.json());
@@ -11,7 +13,13 @@ app.use("/api", require("./routes/api.routes"));
 
 // Middleware
 app.use((req, res, next) => {
-  console.log(new Date());
+  console.log(dayjs().format("DD/MM/YYYY HH:mm.ss"));
+  next();
+});
+app.use(async (req, res, next) => {
+  const fechaActual = dayjs().format("DD/MM/YYYY HH:mm.ss");
+  const linea = `[${fechaActual}] METHOD: ${req.method}. URL: ${req.url}\n`;
+  await fs.appendFile("./main.log", linea);
   next();
 });
 

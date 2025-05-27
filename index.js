@@ -13,9 +13,9 @@ server.listen(PORT);
 
 // Listeners
 server.on("listening", () => {
-    console.log(`Server listening on port ${PORT}`);
+  console.log(`Server listening on port ${PORT}`);
 });
 
 server.on("error", (error) => {
-    console.log(error);
+  console.log(error);
 });
