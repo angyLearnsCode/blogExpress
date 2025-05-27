@@ -5,15 +5,21 @@ const getAll = async (req, res) => {
   res.json(authors);
 };
 
+const getById = async (req, res) => {
+  const { authorId } = req.params;
+  const author = await Authors.selectById(authorId);
+  if (!author)
+    return res.status(404).json({ message: "El ID del autor no existe" });
+
+  res.json(author);
+};
+
 const createAuthor = (req, res) => {
   const { nombre, email, telefono } = req.body;
   res.send("Se crea un nuevo autor");
 };
 
 // // OPCIONALES
-
-// const getById = (req, res) => {
-//   const { authorId } = req.params;
 
 //   // Compruebo si authorId es un numero
 //   if (isNaN(authorId)) {
@@ -31,5 +37,6 @@ const createAuthor = (req, res) => {
 
 module.exports = {
   getAll,
+  getById,
   createAuthor,
 };

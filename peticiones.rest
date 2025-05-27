@@ -3,17 +3,4 @@
 GET {{host}}/api/authors
 
 ###
-POST {{host}}/api/authors
-Content-Type: application/json
-
-{
-    "nombre": "Antonio",
-    "email": "antonio@prueba.es",
-    "telefono": "913567890"
-}
-
-###
-GET http://localhost:3200/api/posts
-
-###
-PUT http://localhost:3200/api/authors
+GET {{host}}/api/authors/1
