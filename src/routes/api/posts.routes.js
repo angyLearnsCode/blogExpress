@@ -1,13 +1,13 @@
 const {
-  getAll,
-  getByAuthorId,
-  createPost,
+  selectAll,
+  selectByAuthorId,
+  create,
 } = require("../../controllers/posts.controller");
 
 const router = require("express").Router();
 
-router.get("/", getAll);
-router.get("/author/:authorId", getByAuthorId);
-router.post("/", createPost);
+router.get("/", selectAll);
+router.get("/author/:authorId", selectByAuthorId);
+router.post("/", create);
 
 module.exports = router;

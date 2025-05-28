@@ -14,3 +14,16 @@ Content-Type: application/json
     "email": "juanan@mail.com",
     "image": "http://images.com/juanan.jpg"
 }
+###
+GET {{host}}/api/posts/author/1
+
+###
+POST {{host}}/api/posts
+Content-Type: application/json
+
+{
+    "title": "Un post creado desde VsCode",
+    "description": "Probando si funciona todo correctamente",
+    "category": "Programación",
+    "author_idauthor": 1
+}

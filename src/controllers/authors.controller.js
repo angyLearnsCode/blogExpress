@@ -40,5 +40,3 @@ module.exports = {
   getById,
   create,
 };
-
-// 9 minutos 8 de mayo
