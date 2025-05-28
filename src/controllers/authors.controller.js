@@ -26,6 +26,15 @@ const create = async (req, res) => {
   if (image && !image.startsWith("http")) {
     return res.status(400).json({ message: "Formato de URL no válido" });
   }
+  // Verificador email inexistente
+  const authorExists = await Authors.selectByEmail(email);
+  if (authorExists) {
+    return res
+      .status(409)
+      .json({
+        message: "El email ya está registrado, por favor selecciona otro",
+      });
+  }
 
   // Resultado
   const result = await Authors.insert(req.body);
