@@ -29,6 +29,11 @@ const create = async (req, res) => {
   if (!authorExists) {
     return res.status(404).json({ message: "El ID del autor no existe" });
   }
+  //Vertificador título no repetido
+  const postExists = await Posts.getByTitle(title);
+  if (postExists) {
+    return res.status(409).json({ message: "El títlo del post ya existe" });
+  }
 
   const result = await Posts.insert({
     title,

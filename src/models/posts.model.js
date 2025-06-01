@@ -57,10 +57,18 @@ const insert = async ({ title, description, category, author_idauthor }) => {
   return result;
 };
 
+const getByTitle = async (title) => {
+  const [result] = await db.query("SELECT * FROM posts WHERE title = ?", [
+    title,
+  ]);
+  return result[0];
+};
+
 // EXPORTADOS
 
 module.exports = {
   selectAll,
   selectByAuthorId,
   insert,
+  getByTitle,
 };
